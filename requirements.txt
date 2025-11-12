@@ -1,0 +1,19 @@
+# -----------------------------
+# Core ML and Data Libraries
+# -----------------------------
+pandas
+numpy
+scikit-learn
+xgboost
+joblib
+
+# -----------------------------
+# API and Web Framework
+# -----------------------------
+fastapi
+uvicorn
+
+# -----------------------------
+# Development Tools
+# -----------------------------
+jupyter
