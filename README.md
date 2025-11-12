@@ -5,6 +5,25 @@ conda create -n medical_cost_env python=3.12
 conda activate medical_cost_env
 
 # Medical Cost Prediction
+________________________________________________________________________________
+
+## Problem Description
+
+Healthcare costs are a significant concern for individuals and insurance providers. Accurately estimating medical insurance charges based on personal attributes helps in budgeting, planning, and risk assessment.
+
+The goal of this project is to develop a machine learning model that predicts the medical insurance cost for an individual using features such as:
+
+- Age  
+- Sex  
+- Body Mass Index (BMI)  
+- Number of children  
+- Smoking status  
+- Residential region  
+
+By analyzing historical insurance data, the model will learn patterns and relationships between these features and the insurance charges, enabling accurate cost predictions for new individuals.
+
+This predictive tool can assist insurance companies in pricing policies fairly and individuals in understanding their potential healthcare expenses.
+________________________________________________________________________________
 
 ## Project Overview
 
