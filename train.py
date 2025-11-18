@@ -12,28 +12,29 @@ from sklearn.metrics import root_mean_squared_error, mean_absolute_error, r2_sco
 from sklearn.ensemble import RandomForestRegressor
 
 from sklearn.pipeline import Pipeline
-from sklearn.base import BaseEstimator, TransformerMixin
+# from sklearn.base import BaseEstimator, TransformerMixin
+# from sklearn.feature_extraction import DictVectorizer
 
 from sklearn.preprocessing import StandardScaler
-from sklearn.feature_extraction import DictVectorizer
+
+from custom_transformer import DictVectorizerTransformer
 
 
+# # ---------------------------------------------------------
+# # Custom Transformer for DictVectorizer
+# # ---------------------------------------------------------
+# class DictVectorizerTransformer(BaseEstimator, TransformerMixin):
+#     def __init__(self):
+#         self.dv = DictVectorizer(sparse=False)
 
-# ---------------------------------------------------------
-# Custom Transformer for DictVectorizer
-# ---------------------------------------------------------
-class DictVectorizerTransformer(BaseEstimator, TransformerMixin):
-    def __init__(self):
-        self.dv = DictVectorizer(sparse=False)
+#     def fit(self, X, y=None):
+#         records = X.to_dict(orient="records")
+#         self.dv.fit(records)
+#         return self
 
-    def fit(self, X, y=None):
-        records = X.to_dict(orient="records")
-        self.dv.fit(records)
-        return self
-
-    def transform(self, X):
-        records = X.to_dict(orient="records")
-        return self.dv.transform(records)
+#     def transform(self, X):
+#         records = X.to_dict(orient="records")
+#         return self.dv.transform(records)
     
 # ---------------------------------------------------------
 # Load Dataset
