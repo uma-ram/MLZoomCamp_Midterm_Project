@@ -120,10 +120,10 @@ def train():
     # ---------------------------------------------------------
     # Save model
     # ---------------------------------------------------------
-    with open("model.pkl", "wb") as f:
+    with open("model.bin", "wb") as f:
         pickle.dump(model_pipeline, f)
 
-    print("\nModel saved as model.pkl")
+    print("\nModel saved as model.bin")
     
 if __name__ == "__main__":
     train()

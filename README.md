@@ -1,10 +1,4 @@
-# Medical Cost Prediction
-This a mid term project repo 
-##Conda Env
-conda create -n medical_cost_env python=3.12
-conda activate medical_cost_env
-
-# Medical Cost Prediction
+# Medical Insurance Cost Prediction
 
 
 ## Problem Description
@@ -40,4 +34,17 @@ This project demonstrates the end-to-end workflow of a machine learning applicat
 
 To run the train.py
 python train.py
+
+3. Build image again
+docker build -t insurance-prediction .
+
+4. Run container
+docker run -it --rm -p 8000:8000 insurance-prediction
+
+
+Then visit:
+
+👉 http://localhost:8000
+
+👉 http://localhost:8000/docs
 

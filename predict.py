@@ -26,7 +26,7 @@ class MedicalCostInput(BaseModel):
 # Load Trained model - Returns model
 # ---------------------------------------------------------
 
-def load_model(model_path="model.pkl"):
+def load_model(model_path="model.bin"):
     print("Loading model...")
     with open(model_path, "rb") as f_in:
         model = pickle.load(f_in)
