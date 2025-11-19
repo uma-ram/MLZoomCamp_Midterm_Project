@@ -9,7 +9,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import root_mean_squared_error, mean_absolute_error, r2_score
 
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 
 from sklearn.pipeline import Pipeline
 # from sklearn.base import BaseEstimator, TransformerMixin
@@ -19,23 +19,7 @@ from sklearn.preprocessing import StandardScaler
 
 from custom_transformer import DictVectorizerTransformer
 
-
-# # ---------------------------------------------------------
-# # Custom Transformer for DictVectorizer
-# # ---------------------------------------------------------
-# class DictVectorizerTransformer(BaseEstimator, TransformerMixin):
-#     def __init__(self):
-#         self.dv = DictVectorizer(sparse=False)
-
-#     def fit(self, X, y=None):
-#         records = X.to_dict(orient="records")
-#         self.dv.fit(records)
-#         return self
-
-#     def transform(self, X):
-#         records = X.to_dict(orient="records")
-#         return self.dv.transform(records)
-    
+   
 # ---------------------------------------------------------
 # Load Dataset
 # ---------------------------------------------------------
@@ -54,9 +38,9 @@ def evaluate(model, X_test, y_test):
     r2 = r2_score(y_test, preds)
 
     print("\n=== Model Evaluation ===")
-    print(f"RMSE: {rmse:.4f}")
-    print(f"MAE : {mae:.4f}")
-    print(f"R²  : {r2:.4f}")
+    print(f"RMSE: {rmse:.2f}")
+    print(f"MAE : {mae:.2f}")
+    print(f"R²  : {r2:.2f}")
 
     return rmse, mae, r2
 
@@ -95,14 +79,29 @@ def train():
     # ---------------------------------------------------------
     # BEST Model (use your tuned parameters)
     # ---------------------------------------------------------
-    best_params = {
-        'n_estimators': 100,
-        'max_depth': 30,
-        'min_samples_split': 10,
-        'min_samples_leaf': 4,
-        'random_state': 25
-    }
-    model = RandomForestRegressor(**best_params)
+    best_params = {'alpha': 0.9,
+        'ccp_alpha': 0.0,
+        'criterion': 'friedman_mse',
+        'init': None,
+        'learning_rate': 0.01,
+        'loss': 'squared_error',
+        'max_depth': 3,
+        'max_features': None,
+        'max_leaf_nodes': None,
+        'min_impurity_decrease': 0.0,
+        'min_samples_leaf': 1,
+        'min_samples_split': 2,
+        'min_weight_fraction_leaf': 0.0,
+        'n_estimators': 300,
+        'n_iter_no_change': None,
+        'random_state': 42,
+        'subsample': 0.6,
+        'tol': 0.0001,
+        'validation_fraction': 0.1,
+        'verbose': 0,
+        'warm_start': False
+        }
+    model = GradientBoostingRegressor(**best_params)
     
     # Full training pipeline
     model_pipeline = Pipeline([
@@ -110,7 +109,7 @@ def train():
         ("model", model)
     ])
     
-    print("Training final model...")
+    print("Training Gradient Boosting model...")
     model_pipeline.fit(X_train, y_train)
 
     print("Evaluating model on test set...")
