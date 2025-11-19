@@ -213,4 +213,18 @@ Using curl: <br>
    ```
 
 ## Cloud Deployment
-    * To be implemented
+
+   Cloud Deployment is done. Deployed in Render.com and service was running successfully  
+
+   * <b>Successful Model Deployment on cloud (render.com)<b> <br>
+
+      ![Cloud Server Running](</Screenshots/Cloud Deployment.png>)<br>
+
+   * <b>Service started and predicted insurance cost for the given user.<b> <br>
+
+      ![Prediction](</Screenshots/Cloud Service Started.png>)<br>
+
+      ![Prediction](</Screenshots/Successfull Model Prediction.png>)
+
+
+
